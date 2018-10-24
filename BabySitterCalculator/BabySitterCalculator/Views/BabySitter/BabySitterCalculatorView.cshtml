@@ -1,0 +1,72 @@
+﻿@model BabySitterCalculator.Models.BabySitterCalculatorModel
+@{
+    Layout = "";
+}
+@{
+    ViewBag.Title = "BabySitting Charge Calculator";
+}
+<HTML>
+<head>
+    <link rel="Stylesheet" href="~/Content/BabySitterCalculator.css" type="text/css" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/BabySitterBillingCalculator.js"></script>
+</head>
+<body>
+    <p></p>
+    <div class="centered-div" >   
+        <table class="centered-table">
+        <caption><b>BabySitting Charge Calculator</b></caption>           
+            <tr>
+                <td width="40%">
+                    @Html.Label("Start Time")
+                </td>
+                <td width="10%"></td>
+                <td width="40%">
+                    @Html.Label("Finish Time")
+                </td>
+
+            </tr>
+            <tr><td /><td /></tr>
+            <tr>
+                <td width="40%">
+                    @Html.DropDownListFor(m => m.selectedStartTime, BabySitterCalculator.Models.BabySitterCalculatorModel.StartTimeDropDownList,
+                    "Select Start Time")
+                </td>
+                <td width="10%"></td>
+                <td width="40%">
+                    @Html.DropDownListFor(m => m.selectedEndTime, BabySitterCalculator.Models.BabySitterCalculatorModel.EndTimeDropDownList,
+                    "Select End Time")
+                </td>
+
+            </tr>
+            <tr><td /><td /></tr>
+            <tr>
+                <td width="40%">
+                    @Html.DisplayNameFor(m => m.BillingHours) :
+                </td>
+                <td width="10%"></td>
+                <td width="40%" align="left">
+                    <label id="BillingHours">@Model.BillingHours</label>
+                </td>
+
+            </tr>
+            <tr>
+                <td width="40%">
+                    @Html.DisplayNameFor(m => m.BillingCharges) :
+                </td>
+                <td width="10%"></td>
+                <td width="40%" align="left">
+                    <label id="BillingCharge">@Model.BillingCharges</label>
+            </td>
+        </tr>
+        <tr>
+            <td width="40%">
+                <input type="button" id="btnCalculateCharges" value="Calculate" />
+            </td>
+            <td width="10%"></td>
+            <td width="40%"></td>
+        </tr>
+    </table>
+</div>
+</body>
+</HTML>
